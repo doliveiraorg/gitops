@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: demo-httpd
+  name: demo-httpd
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: demo-httpd
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: demo-httpd
+    spec:
+      containers:
+      - image: quay.io/fedora/httpd-24-micro
+        name: httpd-24-micro
