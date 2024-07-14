@@ -1,12 +1,15 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  creationTimestamp: null
   labels:
     app: demo-httpd
-    app.kubernetes.io/instance: demo-app-teste-production
   name: demo-httpd
-  namespace: demo-app-teste
+  namespace: demo-httpd
 spec:
   port:
     targetPort: 80
+  to:
+    kind: Service
+    name: demo-httpd
+    weight: 100
+  wildcardPolicy: None
