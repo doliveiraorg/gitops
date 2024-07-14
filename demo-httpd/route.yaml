@@ -4,7 +4,8 @@ metadata:
   labels:
     app: demo-httpd
   name: demo-httpd
-  namespace: demo-httpd
+  annotations:
+    argocd.argoproj.io/sync-wave: "10"  
 spec:
   port:
     targetPort: 80
